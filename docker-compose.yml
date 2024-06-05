@@ -1,0 +1,16 @@
+services:
+  jupyter:
+    build: ./jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./workdir:/home/jovyan/work
+      - ./data:/app
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      JUPYTER_LAB_EXTENSION_MANAGER_DISABLED: "true"
+      JUPYTER_TOKEN: "admin"
+
+volumes:
+  data:
+    driver: local
